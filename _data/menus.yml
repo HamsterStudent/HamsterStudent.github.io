@@ -1,0 +1,18 @@
+- default: menu_index
+  url: ""
+
+- default: menu_category
+  url: "category"
+
+- default: menu_about
+  url: "about"
+
+- title: "Index"
+  url: ""
+
+- title: "Github"
+  absoluteUrl: true
+  url: "https://github.com/HamsterStudent"
+
+- title: "About"
+  url: "about"
