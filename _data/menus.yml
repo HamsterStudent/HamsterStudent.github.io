@@ -7,9 +7,6 @@
 - default: menu_about
   url: "about"
 
-- title: "Index"
-  url: ""
-
 - title: "Github"
   absoluteUrl: true
   url: "https://github.com/HamsterStudent"
