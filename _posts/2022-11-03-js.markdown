@@ -1,0 +1,278 @@
+---
+layout: post
+title: "JavaScript 메모"
+date: 2022-11-03
+last_modified_at: 2022-11-03
+categories: [JavaScript]
+---
+
+## Math
+
+```javascript
+Math.ceil(x);
+Math.floor(x);
+Math.round(x);
+Number.prototype.toFixed(x);
+```
+
+Math.ceil : 주어진 값에 소수점 올림하여 정수를 반환
+
+Math.floor : 주어진 값에 소수점 내림하여 정수를 반환
+
+Math.round : 주어진 값에 소수점 반올림하여 정수를 반환
+
+Number.prototype.toFixed(x) : 주어진 값의 길이만큼 소수점 자리수를 반올림하여 반환
+
+<br><br>
+
+## map
+
+```javascript
+map();
+배열.map((요소, 인덱스, 배열) => {
+  return 요소;
+});
+```
+
+반복을 돌며 배열 내부 요소들을 1대1로 짝지어주는 것.
+\+
+
+```javascript
+const x = [1, 2, 3];
+result = x.map((v) => {
+  return v + 1;
+});
+result; // [2, 3, 4]
+```
+
+<br><br>
+
+## reduce
+
+```javascript
+reduce(prev, cur);
+배열.reduce((누적값, 현잿값, 인덱스, 요소) => {
+  return 결과;
+}, 초기값);
+```
+
+배열이 있으면 각 요소에 대해 함수를 실행하는 것....
+
+return값은 누적된다.
+
+초기값을 적어주지 않으면 자동으로 배열의 첫번째 요소가 초기값이 됨.
+
+```javascript
+array.reduce((x, y) => {
+  return x + y;
+}, 0);
+```
+
+```javascript
+result = x.reduce((prev, cur) => {
+  acc.push(cur % 2 ? "홀수" : "짝수");
+  return acc;
+}, []);
+result;
+// ['홀수','짝수','홀수']
+```
+
+초기값 설정하고 push하는 방식으로 만들면 map과 같이 활용할 수 있다
+
+sort, every, some, find, findIndex, includes도 이런 방식으로 활용 가능하다고 한다네요
+
+<br><br>
+
+## ~~
+
+```javascript
+~~
+```
+
+이중 NOT의 비트 연산자
+
+하여간 양수에 대해서는 Math.floor()랑 같고, 음수에서는 Math.ceil()이랑 같다고 한다.
+
+호환성 문제와 가독성 문제로 그냥 Math.floor()등을 쓰는 경우가 많다고 한다.
+
+<br><br>
+
+## ...
+
+```javascript
+...
+```
+
+1.Rest Operator
+
+객체 혹은 배열의 남은 값을 변수에 할당할 때
+
+```javascript
+const obj = { a: 1, b: 2, c: 3, d: 4, e: 5 };
+const { a, b, ...restObj } = obj;
+```
+
+2.Spread Operator
+
+객체 혹은 배열의 값을 합칠 때, 혹은 복사할 때
+
+모든 값들만 꺼내서 사용할 때
+
+```javascript
+let arr1 = [6, 7];
+let arr2 = [8, 9];
+let arr3 = [...arr1, ...arr2];
+// arr3 = [6, 7, 8, 9]
+```
+
+<br><br>
+
+## replace
+
+```javascript
+replaceAll(pattern, replacement);
+```
+
+replace랑 뭐가 다른가 했더니 replaceAll은 해당 문자열이 들어간 부분 전부 변경하는 듯.
+
+<br>
+
+_replace는 문자열에서 일치하는 부분을 탐색하고, 그 부분을 대체 문자열로 바꿉니다._
+
+_replaceAll은 문자열에서 일치하는 부분을 모두 탐색하고, 모두 대체 문자열로 바꿉니다._
+
+<br><br>
+
+## split
+
+```javascript
+str.split(separator, limit);
+```
+
+str은 끊어야 할 문자열을 나타낸 것
+
+유의해야 할 점은 끊은 문자열은 배열로 변환되어 그 안에 들어간다.
+
+<br>
+
+separator
+
+_원본 문자열을 끊어야 할 부분을 나타내는 문자열을 나타냅니다. 실제 문자열이나 정규표현식을 받을 수 있습니다. 문자열 유형의 separator가 두 글자 이상일 경우 그 부분 문자열 전체가 일치해야 끊어집니다. separator가 생략되거나 str에 등장하지 않을 경우, 반환되는 배열은 원본 문자열을 유일한 원소로 가집니다. separator가 빈 문자열일 경우 str의 각각의 문자가 배열의 원소 하나씩으로 변환됩니다._
+
+limit
+
+_끊어진 문자열의 최대 개수를 나타내는 정수입니다. 이 매개변수를 전달하면 split() 메서드는 주어진 separator가 등장할 때마다 문자열을 끊지만 배열의 원소가 limit개가 되면 멈춥니다. 지정된 한계에 도달하기 전에 문자열의 끝까지 탐색했을 경우 limit개 미만의 원소가 있을 수도 있습니다. 남은 문자열은 새로운 배열에 포함되지 않습니다._
+
+<br><br>
+
+## join
+
+```javascript
+arr.join([separator]);
+```
+
+array에서 쓰는 모양인뎁...
+
+split를 쓰고 같이 쓰는 걸 보니 split가 배열을 만들어 주나 알쏭달쏭했었음.
+
+공식 문서 읽으니까 맞다더라
+
+<br>
+
+separator Optional
+
+_배열의 각 요소를 구분할 문자열을 지정합니다. 이 구분자는 필요한 경우 문자열로 변환됩니다. 생략하면 배열의 요소들이 쉼표로 구분됩니다. separator가 빈 문자열이면 모든 요소들이 사이에 아무 문자도 없이 연결됩니다._
+
+<br><br>
+
+## sort
+
+```javascript
+arr.sort([compareFunction]);
+```
+
+배열 정렬하는 함수 compareFunction지정 안해주면 유니코드 기준으로 정렬된다.
+
+<br>
+
+[ compareFunction( a, b) ]
+
+- 0을 반환하면 a와 b를 서로에 대해 변경x 다른 요소 정렬
+- 0보다 작은 경우 a를 b보다 낮은 색인으로 정렬. a가 먼저 옴.
+- 0보다 큰 경우 b를 a보다 낮은 인덱스로 정렬
+- 요소 a와 b의 특정 쌍이 두 개의 인수로 주어질 때 항상 동일한 값을 반환해야합니다. 일치하지 않는 결과가 반환되면 정렬 순서는 정의되지 않습니다.
+
+<br><br>
+
+## findIndex
+
+```javascript
+arr.findIndex();
+```
+
+주어진 판별 함수를 만족하는 배열의 첫 번째 요소에 대한 인덱스 반환 <??
+
+말이 너무 어렵다...
+
+```javascript
+arr.findIndex(callback(element[, index[, array]])[, thisArg])
+```
+
+- callback : 3개의 인수를 취하여 배열의 각 값에 대해 실행할 함수
+
+- element : 배열에서 처리중인 현재 요소
+
+- index : 배열에서 처리중인 현재 요소의 인덱스
+
+- array : findIndex 함수가 호출된 배열
+
+- thisArg : 선택 사항. 콜백을 실행할 때 this로 사용할 객체
+
+<br><br>
+
+## slice
+
+```javascript
+arr.slice();
+```
+
+어떤 배열의 처음부터 끝까지의 복사본을 '배열 객체'로 반환.
+
+원본 배열은 바뀌지 않음.
+
+괄호에 시작점과 끝점을 지정할 수 있다.
+
+<br><br>
+
+## indexOf
+
+```javascript
+arr.indexOf();
+```
+
+배열에서 지정된 요소를 찾는 기능. 존재하지 않으면 -1 반환.
+
+0부터 시작함.
+
+<br><br>
+
+## splice
+
+```javascript
+arr.splice(index, num, insert);
+```
+
+배열에서 지정된 요소를 지우고 삽입하는 기능
+
+index는 지우기 시작할 부분을 지정
+
+num 은 지울 갯수를 지정
+
+insert는 삽입할 항목을 설정
+
+```javascript
+x.splice(1, 0, "a", "b");
+// 지우지 않고 삽입만 하고 싶을 때에는 지울 갯수를 지정하지 않으면 된다
+```
+
+<br><br><br><br>

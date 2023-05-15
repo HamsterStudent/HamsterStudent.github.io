@@ -1,0 +1,140 @@
+---
+layout: post
+title: "Github 연결하기"
+date: 2021-11-01
+last_modified_at: 2021-11-01
+categories: [Git]
+---
+
+<br><br>
+E드라이브의 폴더가 사라진 관계로 ...
+
+git파일을 github에서 다시 받아서 재연결했다
+
+매번 연결할 때마다 찾는 것 같아서 기록해두는용
+<br><br>
+
+---
+
+<br>
+
+## Github 연결 순서
+
+```bash
+git remote -v
+```
+
+현재 연결된 저장소 확인
+
+```bash
+git remote remove origin
+```
+
+해당 명령어 사용 후 git remote -v 입력하면 아무것도 안 뜨는 걸 볼 수 있음
+
+```bash
+git remote add origin https://github.com/Name/New_Repository_Name.git
+```
+
+git remote add <저장소이름> <주소> 순으로 입력한다
+
+<br>
+
+---
+
+<br>
+
+# error log
+
+<br>
+
+### error: src refspec master does not match any
+
+```bash
+error: src refspec master does not match any
+```
+
+git add와 commit를 하지 않아서 나오는 에러
+
+당연히 add와 commit을 하면 해결된다
+
+<br>
+
+### 연결된 저장소가 없음 경고
+
+```bash
+fatal: No configured push destination.
+```
+
+연결된 저장소가 없음 경고
+
+```bash
+Either specify the URL from the command-line or configure a remote repository using
+
+git remote add <name> <url>
+
+and then push using the remote name
+
+git push <name>
+
+```
+
+git remote add <name> <url>을 했음에도 이 경고문이 나타나는 경우가 있다.
+
+이런 경우에 push를 처음 하게 되면
+
+```bash
+git push --set-upstream origin main
+```
+
+으로 동작시켜야하는데 이걸 빼먹어서 그렇기도 하다. orgin과 main은 내 저장소 정보에 따르면 됨
+
+<br>
+
+### 깃 폴더 변경
+
+```bash
+git init
+```
+
+깃 폴더가 변경되었을 땐 git init으로 먼저 폴더를 로컬저장소로 만들어 줘야 함
+
+<br>
+
+### git pull 이 안될때
+
+```bash
+git fetch --all
+git reset --hard origin/master
+```
+
+로컬폴더에 데이터가 전부 안들어왔는데도 Already up to date가 뜨면서 파일을 불러오지 못하는 상황...
+
+게다가 엉뚱한 곳을 가리키면서 너의 헤드는 이곳이다 하는 경우가 발생...
+
+(HEAD is now at 79d0783 20220421)
+
+그래서 git pull이 계속 안되고 있었다.
+
+이 명령어를 쓰면 로컬 파일은 날아가는 대신 정상적으로 pull된다고 했었는데 안돼서...
+
+한참 찾다가 경로가 잘못됐나 하는 마음에 브랜치를 master에서 main으로 변경해봤다.
+
+```bash
+git reset --hard origin/main
+```
+
+이렇게 하니까 잘 됨
+
+<br>
+
+### 아이디와 이름 설정
+
+```bash
+git config --global user.email "이메일 주소"
+git config --global user.name "이름"
+```
+
+git 아이디와 이름 설정하기
+
+<br><br>

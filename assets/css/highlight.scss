@@ -10,13 +10,13 @@
 @charset "utf-8";
 
 .highlight {
-  table{
+  table {
     td {
-      padding: 5px; 
+      padding: 5px;
     }
 
-    pre { 
-      margin: 0; 
+    pre {
+      margin: 0;
     }
   }
 
@@ -27,8 +27,9 @@
 
   // Lexer errors
   .err {
-    color: #fefeec;
-    background-color: #c00;
+    // color: #fefeec;
+    color: #80aa71;
+    // background-color: #c00;
   }
 
   // 	Token for data not matched by a parser (e.g. HTML markup in PHP code)
@@ -173,7 +174,7 @@
     font-weight: bold;
     color: #008;
   }
-  
+
   // For global variables (such as $LOAD_PATH in Ruby)
   .vg {
     font-weight: bold;
@@ -238,7 +239,7 @@
     font-weight: bold;
     color: #800;
   }
-  
+
   // For interpoled part in strings (e.g. in Ruby)
   .si {
     font-weight: bold;
@@ -274,7 +275,7 @@
     font-weight: bold;
     color: #f696db;
   }
-  
+
   // Float numbers
   .mf {
     font-weight: bold;
@@ -339,7 +340,7 @@
     font-style: italic;
     color: #228b22;
   }
-  
+
   // Mutliline comments
   .cm {
     font-style: italic;
@@ -356,7 +357,7 @@
   // Comments that end at the end of the line
   .c1 {
     font-style: italic;
-    color: #228b22;
+    color: #a2a2a2;
   }
 
   // Special data in comments such as @license in Javadoc
@@ -436,13 +437,13 @@
     font-style: italic;
     color: #228b22;
   }
-  
+
   // Keywords used for variable
   .kv {
     font-weight: bold;
     color: #c71585;
   }
-  
+
   // Punctuation which is an indicator
   .pi {
     color: #0f6f75;

@@ -2,14 +2,11 @@
   url: ""
 
 - default: menu_category
-  url: "category"
-
-- default: menu_about
-  url: "about"
+  url: "categories"
 
 - title: "Github"
   absoluteUrl: true
   url: "https://github.com/HamsterStudent"
 
-- title: "About"
+- default: menu_about
   url: "about"

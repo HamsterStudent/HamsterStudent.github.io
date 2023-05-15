@@ -1,0 +1,42 @@
+---
+layout: post
+title: "Git 명령어 메모"
+date: 2023-01-19
+last_modified_at: 2023-01-19
+categories: [Git]
+---
+
+## Git 명령어 메모
+
+```bash
+
+git add 파일이름 // 특정 파일을 staging area에 보냄
+git add . // 파일 모두 staging area에 보냄
+git commit -m "메모" // 파일을 repository에 보냅니다
+
+git branch 브랜치이름 // 브랜치 생성
+git switch 브랜치이름 // 브랜치 이동
+
+git merge 브랜치이름 // 현재 브랜치와(HEAD) 입력한 브랜치 병합
+
+git log // 메모와 로그 아이디 보여줌
+git log --oneline --all // 간단하게보여줌
+git log --oneline --all --graph // 그래프로 보여줌
+
+git reset 로그아이디 -- hard // 해당 로그로 리셋시켜주는데, 해당 로그 이후에 만든 로그들은 삭제됨
+
+git diff // ...잘안씀... 터미널로 로그 확인하는 국밥방법
+git difftool // vim을 써서 로그 확인시켜주는 방법. 이것도 잘 쓰지는 않는다고 한다.
+```
+
+git graph 라는 익스텐션 깔면 보기가 훨씬 용이하다.
+
+VS Code툴 안쓰고 다른거 쓰면 어떨진 모르겠다..
+
+---
+
+git diff 로 진입했을때 탈출하려면 :q 나 :qa 입력하면 된다.
+
+입력을 잘못 해서 수정사항 어떻게할거냐고 물어볼때가 있는데 그럴땐
+
+:qa ! 를 치면 나와짐

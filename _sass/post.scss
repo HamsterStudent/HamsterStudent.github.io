@@ -4,12 +4,9 @@
   text-align: center;
 }
 
-.post-author {
-  display: none;
-}
-
 .post-content p {
   line-height: 20px;
+  font-size: 14px;
 }
 
 .post-content img {
@@ -22,6 +19,13 @@
   margin: 10px 0;
 }
 
-.post-category, .post-tag {
+.post-category,
+.post-tag {
   margin: 0 5px;
+}
+
+.indexImg {
+  width: 450px;
+  position: relative;
+  left: calc(50% - 225px);
 }
