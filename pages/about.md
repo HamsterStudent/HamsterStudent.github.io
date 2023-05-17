@@ -6,6 +6,6 @@ permalink: /about/
 
 HamsterStudent
 
-https://github.com/HamsterStudent
+[Github : https://github.com/HamsterStudent](https://github.com/HamsterStudent)
 
-hwanyamyu@gmail.com
+[Email : hwanyamyu@gmail.com](hwanyamyu@gmail.com)

@@ -7,16 +7,19 @@ categories: [Jekyll]
 ---
 
 <br><br>
+
 ios 환경에서 Jekyll 블로그를 만들어보면서
 
 테마 적용이나 설치에 있어 난관에 봉착한 횟수가 수도 없었기에,
 
 미래의 나를 위해서라도 이렇게 마주했던 에러와 그 대처법을 적어둔다.
+
 <br><br>
 
 ---
 
 <br>
+
 ## Gem::FilePermissionError
 
 ```bash
@@ -91,8 +94,46 @@ gem install bundler
 
 gem install 실행
 
+```bash
+bundle exec jekyll serve
+```
+
+jekyll 사이트 실행
+
 \+
 
 나같은 경우엔 flutter를 설치하면서 zshrc파일을 건드릴 일이 있었는데,
 
 그 과정에서 뭔가 틀어졌었던 것 같다.
+
+<br><br>
+
+## Any scripts that use 'gem install bundler' will break as soon as Bundler drops support for your Ruby version. Please upgrade RubyGems to avoid future breakage and silence this warning by running `gem update --system 3.2.3`
+
+<br><br>
+
+번들러가 루비 버전에 대한 서포트를 중단하면 번들러도 작동을 안하니 ... 업데이트를 해두라는 의미
+
+시키는대로 하면 된다.
+
+<br>
+
+```bash
+gem update --system 3.2.3
+```
+
+업그레이드 하기
+
+```bash
+bundle install
+```
+
+업그레이드 했으니 번들도 인스톨해준다.
+
+```bash
+bundle exec jekyll serve
+```
+
+jekyll 사이트 실행
+
+<br><br>
