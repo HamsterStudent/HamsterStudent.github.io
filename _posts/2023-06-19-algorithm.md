@@ -26,18 +26,6 @@ function solution(name, yearning, photo) {
     obj[`${name}`] = yearning[index];
   });
 
-  // for문을 이용한 방법
-  // for(let i = 0; i < photo.length; i++){
-  //     let point = 0;
-  //     for(let j = 0; j < photo[i].length; j++){
-  //         if(photo[i][j] !== undefined){
-  //             point = point + obj[photo[i][j]]
-  //         }
-  //     }
-  //     answer.push(point)
-  // }
-
-  // map을 이용한 방법
   photo.map((x) => {
     let point = 0;
     for (let i = 0; i < x.length; i++) {
@@ -47,6 +35,32 @@ function solution(name, yearning, photo) {
     }
     answer.push(point);
   });
+
+  return answer;
+}
+```
+
+## 해결
+
+for문 사용 & null인 부분 제외하고 push하기로 변경했더니 잘 된다.
+
+```js
+function solution(name, yearning, photo) {
+  var answer = [];
+  let obj = {};
+  name.map((name, index) => {
+    obj[`${name}`] = yearning[index];
+  });
+
+  for (let i = 0; i < photo.length; i++) {
+    let point = 0;
+    for (let j = 0; j < photo[i].length; j++) {
+      if (obj[photo[i][j]] != null) {
+        point = point + obj[photo[i][j]];
+      }
+    }
+    answer.push(point);
+  }
 
   return answer;
 }
